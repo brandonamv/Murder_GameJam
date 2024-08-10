@@ -18,3 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GLOBAL="*res://global.gd"
+
+[layer_names]
+
+3d_render/layer_1="Floor"
+3d_render/layer_2="Wall"
