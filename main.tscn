@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmkyb0hhd0hqv"]
+[gd_scene load_steps=9 format=3 uid="uid://bmkyb0hhd0hqv"]
 
 [ext_resource type="Texture2D" uid="uid://duicfsa5055qk" path="res://48363882_10211371688242657_8638120375554670592_n.jpg" id="2_8bgvk"]
 [ext_resource type="Script" path="res://player.gd" id="2_xg10q"]
@@ -9,6 +9,9 @@ albedo_texture = ExtResource("2_8bgvk")
 [sub_resource type="BoxMesh" id="BoxMesh_50qx2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a0jf0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_swadx"]
+radius = 1.43
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cw2q3"]
 
@@ -22,10 +25,12 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.10294, -0.130501, -0.45162, -0.188406)
 use_collision = true
+collision_layer = 4
 size = Vector3(10, 1, 10)
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.356447, 5.9061, -0.526196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.356, 5.906, -0.871)
+collision_mask = 6
 platform_floor_layers = 4294967041
 platform_wall_layers = 2
 script = ExtResource("2_xg10q")
@@ -44,22 +49,32 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("BoxShape3D_a0jf0")
 
+[node name="Interaction" type="Area3D" parent="Player"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Interaction"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+shape = SubResource("SphereShape3D_swadx")
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.81636, 0.532315, -0.162258)
-layers = 3
+layers = 4
 use_collision = true
-collision_layer = 3
-collision_mask = 3
+collision_layer = 4
+collision_mask = 0
 size = Vector3(1, 1, 10.9789)
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="NPC" type="Node3D" parent="."]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Node3D"]
+[node name="Physics" type="RigidBody3D" parent="NPC"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52402, 3.24854)
+collision_layer = 2
+collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPC/Physics"]
 shape = SubResource("BoxShape3D_cw2q3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/RigidBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NPC/Physics"]
 mesh = SubResource("BoxMesh_sm8at")
 skeleton = NodePath("../..")

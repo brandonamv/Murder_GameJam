@@ -21,12 +21,18 @@ func _physics_process(delta):
 		viewPoint.z=direction.y
 		viewPoint = viewPoint.normalized()
 		$Pivot.basis = Basis.looking_at(viewPoint)
-	
+		#$Interaction.basis= Basis.looking_at(viewPoint)
+		
 	if player.position.y < -200 :
 		player.position.x = 0
 		player.position.y = 2
 		player.position.z = 0
-		
+	
+	if Input.is_action_just_pressed("interact"):
+		var npc=$Interaction.get_overlapping_bodies()
+		if npc:
+			print("interaction is posible")
+	
 	move_and_slide()
 
 
