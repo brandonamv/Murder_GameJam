@@ -7,7 +7,7 @@ var actualInteraction
 
 func _physics_process(delta):
 	direction = GLOBAL.get_axis()
-		
+	
 	velocity.x = direction.x * speed
 	velocity.z = direction.y * speed
 	
@@ -28,19 +28,19 @@ func _physics_process(delta):
 		player.position.x = 0
 		player.position.y = 2
 		player.position.z = 0
-		
+	
 	var collide=$Interaction.get_overlapping_bodies()
 	if Input.is_action_just_pressed("interact"):
 		if collide:
-			
 			print("interaction is posible",collide[0].name)
 			#npc[0].queue_free() #para eliminar el objeto
 			collide[0].get_node("Dialog").visible=true
 			actualInteraction=collide[0]
+			#$"../Cancion".play()
 	if !collide and actualInteraction:
 		actualInteraction.get_node("Dialog").visible=false
 		actualInteraction=null
-	
+		#$"../Cancion".stop()
 	move_and_slide()
 
 
