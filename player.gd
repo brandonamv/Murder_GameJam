@@ -3,6 +3,7 @@ extends CharacterBody3D
 @export var speed : float
 var direction = Vector2.ZERO
 var gravity = 9
+var actualInteraction
 
 func _physics_process(delta):
 	direction = GLOBAL.get_axis()
@@ -27,13 +28,18 @@ func _physics_process(delta):
 		player.position.x = 0
 		player.position.y = 2
 		player.position.z = 0
-	
+		
+	var collide=$Interaction.get_overlapping_bodies()
 	if Input.is_action_just_pressed("interact"):
-		var npc=$Interaction.get_overlapping_bodies()
-		if npc:
-			print("interaction is posible",npc[0].name)
-			#npc[0].queue_free() #para eliminar el objeto
+		if collide:
 			
+			print("interaction is posible",collide[0].name)
+			#npc[0].queue_free() #para eliminar el objeto
+			collide[0].get_node("Dialog").visible=true
+			actualInteraction=collide[0]
+	if !collide and actualInteraction:
+		actualInteraction.get_node("Dialog").visible=false
+		actualInteraction=null
 	
 	move_and_slide()
 
