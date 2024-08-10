@@ -6,9 +6,7 @@ var gravity = 9
 
 func _physics_process(delta):
 	direction = GLOBAL.get_axis()
-	
-	var newPosition = Vector3.ZERO
-	
+		
 	velocity.x = direction.x * speed
 	velocity.z = direction.y * speed
 	
@@ -16,6 +14,13 @@ func _physics_process(delta):
 		velocity.y -= gravity
 		
 	var player = get_node(".")
+	
+	if direction != Vector2.ZERO:
+		var viewPoint= Vector3.ZERO
+		viewPoint.x=direction.x
+		viewPoint.z=direction.y
+		viewPoint = viewPoint.normalized()
+		$Pivot.basis = Basis.looking_at(viewPoint)
 	
 	if player.position.y < -200 :
 		player.position.x = 0

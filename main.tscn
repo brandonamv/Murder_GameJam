@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmkyb0hhd0hqv"]
+[gd_scene load_steps=8 format=3 uid="uid://bmkyb0hhd0hqv"]
 
+[ext_resource type="Texture2D" uid="uid://duicfsa5055qk" path="res://48363882_10211371688242657_8638120375554670592_n.jpg" id="2_8bgvk"]
 [ext_resource type="Script" path="res://player.gd" id="2_xg10q"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hs8na"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xv17w"]
+albedo_texture = ExtResource("2_8bgvk")
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_wdqqg"]
+[sub_resource type="BoxMesh" id="BoxMesh_50qx2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0jf0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cw2q3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sm8at"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -23,14 +31,18 @@ platform_wall_layers = 2
 script = ExtResource("2_xg10q")
 speed = 10.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("CapsuleShape3D_hs8na")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-mesh = SubResource("CapsuleMesh_wdqqg")
-
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.91054, 2.09639, 0.748649)
+
+[node name="Pivot" type="Node3D" parent="Player"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Pivot"]
+material_override = SubResource("StandardMaterial3D_xv17w")
+mesh = SubResource("BoxMesh_50qx2")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("BoxShape3D_a0jf0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.81636, 0.532315, -0.162258)
@@ -39,3 +51,15 @@ use_collision = true
 collision_layer = 3
 collision_mask = 3
 size = Vector3(1, 1, 10.9789)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52402, 3.24854)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/RigidBody3D"]
+shape = SubResource("BoxShape3D_cw2q3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/RigidBody3D"]
+mesh = SubResource("BoxMesh_sm8at")
+skeleton = NodePath("../..")
