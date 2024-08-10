@@ -31,7 +31,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
 		var npc=$Interaction.get_overlapping_bodies()
 		if npc:
-			print("interaction is posible")
+			print("interaction is posible",npc[0].name)
+			#npc[0].queue_free() #para eliminar el objeto
+			
 	
 	move_and_slide()
 

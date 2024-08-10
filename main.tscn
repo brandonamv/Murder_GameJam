@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmkyb0hhd0hqv"]
+[gd_scene load_steps=8 format=3 uid="uid://bmkyb0hhd0hqv"]
 
+[ext_resource type="PackedScene" uid="uid://c84jqacwj0cq8" path="res://npc.tscn" id="1_m02dp"]
 [ext_resource type="Texture2D" uid="uid://duicfsa5055qk" path="res://48363882_10211371688242657_8638120375554670592_n.jpg" id="2_8bgvk"]
 [ext_resource type="Script" path="res://player.gd" id="2_xg10q"]
 
@@ -11,13 +12,11 @@ albedo_texture = ExtResource("2_8bgvk")
 [sub_resource type="BoxShape3D" id="BoxShape3D_a0jf0"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_swadx"]
-radius = 1.43
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cw2q3"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_sm8at"]
+radius = 1.268
 
 [node name="Node3D" type="Node3D"]
+
+[node name="Pepe" parent="." instance=ExtResource("1_m02dp")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -8, 14, 14)
@@ -65,16 +64,5 @@ collision_layer = 4
 collision_mask = 0
 size = Vector3(1, 1, 10.9789)
 
-[node name="NPC" type="Node3D" parent="."]
-
-[node name="Physics" type="RigidBody3D" parent="NPC"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52402, 3.24854)
-collision_layer = 2
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NPC/Physics"]
-shape = SubResource("BoxShape3D_cw2q3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NPC/Physics"]
-mesh = SubResource("BoxMesh_sm8at")
-skeleton = NodePath("../..")
+[node name="Jose" parent="." instance=ExtResource("1_m02dp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52402, -2.83208)
