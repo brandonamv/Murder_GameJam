@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://bmkyb0hhd0hqv"]
 
-[ext_resource type="PackedScene" path="res://npc.tscn" id="1_m02dp"]
+[ext_resource type="PackedScene" uid="uid://c84jqacwj0cq8" path="res://npc.tscn" id="1_m02dp"]
 [ext_resource type="Texture2D" uid="uid://duicfsa5055qk" path="res://48363882_10211371688242657_8638120375554670592_n.jpg" id="2_8bgvk"]
 [ext_resource type="Script" path="res://player.gd" id="2_xg10q"]
 [ext_resource type="AudioStream" uid="uid://cqqfo5layyq7" path="res://assets/music/ambient.mp3" id="4_xqhgf"]
-[ext_resource type="Texture2D" uid="uid://b4r40eporcynr" path="res://icon.svg" id="5_mqeks"]
+[ext_resource type="PackedScene" uid="uid://cll841ds81rl4" path="res://Inventario/inventario.tscn" id="5_o1uye"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_hjnxl"]
 auto_exposure_scale = 0.01
@@ -80,87 +80,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52402, -2.83208)
 stream = ExtResource("4_xqhgf")
 autoplay = true
 
-[node name="Inventario" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1.0
-offset_right = 980.0
-offset_bottom = 650.0
-scale = Vector2(0.24, 1)
-
-[node name="Filas" type="VBoxContainer" parent="Inventario"]
-layout_mode = 2
-offset_left = -4.16667
-offset_top = 36.0
-offset_right = 1095.83
-offset_bottom = 636.0
-
-[node name="Columna1" type="HBoxContainer" parent="Inventario/Filas"]
-layout_mode = 2
-
-[node name="TextureButton2" type="TextureButton" parent="Inventario/Filas/Columna1"]
-custom_minimum_size = Vector2(500, 100)
-layout_mode = 2
-texture_normal = ExtResource("5_mqeks")
-stretch_mode = 0
-
-[node name="TextureButton" type="TextureButton" parent="Inventario/Filas/Columna1"]
-custom_minimum_size = Vector2(500, 100)
-layout_mode = 2
-texture_normal = ExtResource("5_mqeks")
-stretch_mode = 0
-
-[node name="Columna2" type="HBoxContainer" parent="Inventario/Filas"]
-layout_mode = 2
-
-[node name="TextureButton2" type="TextureButton" parent="Inventario/Filas/Columna2"]
-custom_minimum_size = Vector2(500, 100)
-layout_mode = 2
-texture_normal = ExtResource("5_mqeks")
-stretch_mode = 0
-
-[node name="TextureButton" type="TextureButton" parent="Inventario/Filas/Columna2"]
-custom_minimum_size = Vector2(500, 100)
-layout_mode = 2
-texture_normal = ExtResource("5_mqeks")
-stretch_mode = 0
-
-[node name="Columna3" type="HBoxContainer" parent="Inventario/Filas"]
-layout_mode = 2
-
-[node name="TextureButton2" type="TextureButton" parent="Inventario/Filas/Columna3"]
-custom_minimum_size = Vector2(500, 100)
-layout_mode = 2
-texture_normal = ExtResource("5_mqeks")
-stretch_mode = 0
-
-[node name="TextureButton" type="TextureButton" parent="Inventario/Filas/Columna3"]
-custom_minimum_size = Vector2(500, 100)
-layout_mode = 2
-texture_normal = ExtResource("5_mqeks")
-stretch_mode = 0
-
-[node name="Columna4" type="HBoxContainer" parent="Inventario/Filas"]
-layout_mode = 2
-
-[node name="TextureButton2" type="TextureButton" parent="Inventario/Filas/Columna4"]
-custom_minimum_size = Vector2(500, 100)
-layout_mode = 2
-texture_normal = ExtResource("5_mqeks")
-stretch_mode = 0
-
-[node name="TextureButton" type="TextureButton" parent="Inventario/Filas/Columna4"]
-custom_minimum_size = Vector2(500, 100)
-layout_mode = 2
-texture_normal = ExtResource("5_mqeks")
-stretch_mode = 0
-
-[node name="Close" type="TextureButton" parent="Inventario"]
-layout_mode = 0
-offset_left = 912.5
-offset_top = 11.0
-offset_right = 2157.5
-offset_bottom = 1256.0
-scale = Vector2(0.166669, 0.0400002)
-texture_normal = ExtResource("2_8bgvk")
-stretch_mode = 0
+[node name="Inventario" parent="." instance=ExtResource("5_o1uye")]
