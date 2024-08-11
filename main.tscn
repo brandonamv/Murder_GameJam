@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmkyb0hhd0hqv"]
+[gd_scene load_steps=9 format=3 uid="uid://bmkyb0hhd0hqv"]
 
 [ext_resource type="PackedScene" uid="uid://c84jqacwj0cq8" path="res://npc.tscn" id="1_m02dp"]
 [ext_resource type="Texture2D" uid="uid://duicfsa5055qk" path="res://48363882_10211371688242657_8638120375554670592_n.jpg" id="2_8bgvk"]
@@ -29,7 +29,7 @@ collision_layer = 4
 size = Vector3(10, 1, 10)
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.356, 5.906, -0.871)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.356, 5.906, 0.245911)
 collision_mask = 6
 platform_floor_layers = 4294967041
 platform_wall_layers = 2
@@ -38,7 +38,6 @@ speed = 10.0
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.91054, 2.09639, 0.748649)
-attributes = SubResource("CameraAttributesPractical_hjnxl")
 
 [node name="Pivot" type="Node3D" parent="Player"]
 
@@ -68,18 +67,6 @@ size = Vector3(1, 1, 10.9789)
 
 [node name="Jose" parent="." instance=ExtResource("1_m02dp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52402, -2.83208)
-
-[node name="Physics" type="RigidBody3D" parent="NPC"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52402, 3.24854)
-collision_layer = 2
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NPC/Physics"]
-shape = SubResource("BoxShape3D_cw2q3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NPC/Physics"]
-mesh = SubResource("BoxMesh_sm8at")
-skeleton = NodePath("../..")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
