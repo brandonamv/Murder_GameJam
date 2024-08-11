@@ -5,6 +5,15 @@ var direction = Vector2.ZERO
 var gravity = 9
 var actualInteraction
 
+var camPos={
+	ServiceRoom={x=34,z=10},
+	Reception={x=28,z=1},
+	Lounge={x=44,z=-16},
+	RestRoom={x=54,z=-1},
+	Corridor1={x=36,z=-39},
+	Corridor2={x=17,z=-28}
+}
+
 func _physics_process(delta):
 	direction = GLOBAL.get_axis()
 	
@@ -41,6 +50,13 @@ func _physics_process(delta):
 		actualInteraction.get_node("Dialog").visible=false
 		actualInteraction=null
 		#$"../Cancion".stop()
+		
+	for index in range(get_slide_collision_count()):
+		var collision = get_slide_collision(index)
+		if collision.get_collider().name in camPos:
+			#print(camPos[collision.get_collider().name].x)
+			$"../Camera3D".position.x=camPos[collision.get_collider().name].x
+			$"../Camera3D".position.z=camPos[collision.get_collider().name].z
 	move_and_slide()
 
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkrsdron7le5p"
-path.s3tc="res://.godot/imported/Gabinete 2.png-ddfb71c552cef52ce1a5e467efed2050.s3tc.ctex"
+uid="uid://c8xxl8rqv2ug4"
+path.s3tc="res://.godot/imported/Floor_Almacen.png-b195524c114d61d4ee0091322b3e7e01.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Tile Assets/Gabinete 2.png"
-dest_files=["res://.godot/imported/Gabinete 2.png-ddfb71c552cef52ce1a5e467efed2050.s3tc.ctex"]
+source_file="res://assets/Tile Assets/Floor_Almacen.png"
+dest_files=["res://.godot/imported/Floor_Almacen.png-b195524c114d61d4ee0091322b3e7e01.s3tc.ctex"]
 
 [params]
 
