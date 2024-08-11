@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyjl64jetsm85"
-path="res://.godot/imported/Corner.png-c316db60b6218337e51634e2cb5c8682.ctex"
+uid="uid://04p8sbmeojd"
+path="res://.godot/imported/wall_backroom3x.jpg-7fc2b99bfdae33185d2b7beba54022c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tile Assets/Corner.png"
-dest_files=["res://.godot/imported/Corner.png-c316db60b6218337e51634e2cb5c8682.ctex"]
+source_file="res://assets/Tile Assets/wall_backroom3x.jpg"
+dest_files=["res://.godot/imported/wall_backroom3x.jpg-7fc2b99bfdae33185d2b7beba54022c5.ctex"]
 
 [params]
 
