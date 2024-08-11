@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bmkyb0hhd0hqv"]
+[gd_scene load_steps=52 format=3 uid="uid://bmkyb0hhd0hqv"]
 
 [ext_resource type="Texture2D" uid="uid://duicfsa5055qk" path="res://48363882_10211371688242657_8638120375554670592_n.jpg" id="2_8bgvk"]
 [ext_resource type="Script" path="res://player.gd" id="2_xg10q"]
@@ -16,6 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://daiiulaijd5qf" path="res://assets/Tile Assets/Floor_Pasillo.png" id="8_48lkf"]
 [ext_resource type="Texture2D" uid="uid://cgduap5bbkmn" path="res://assets/Tile Assets/Wall_Door_Only.png" id="10_45i6h"]
 [ext_resource type="Texture2D" uid="uid://cjfarloe6ihbh" path="res://assets/Tile Assets/Wall_Door_Interactive.png" id="12_7b2x7"]
+[ext_resource type="Texture2D" uid="uid://yuyuudcppvpd" path="res://assets/Tile Assets/Recepcion.png" id="17_445dy"]
+[ext_resource type="Texture2D" uid="uid://bdsyphinn51fk" path="res://assets/Tile Assets/Plant.png" id="18_wgn1d"]
+[ext_resource type="Texture2D" uid="uid://cdm0mwbxlihgq" path="res://assets/Tile Assets/Cubo de limpieza.png" id="18_xymtn"]
+[ext_resource type="Texture2D" uid="uid://l04o04821bb3" path="res://assets/Tile Assets/Tacho Vacio.png" id="19_e2qt6"]
+[ext_resource type="Texture2D" uid="uid://tuo6b55p0lpl" path="res://assets/Tile Assets/Carpet.png" id="20_qltgk"]
 
 [sub_resource type="Environment" id="Environment_hg0hl"]
 tonemap_white = 9.25
@@ -136,12 +141,17 @@ albedo_texture = ExtResource("4_jxxyt")
 albedo_texture = ExtResource("7_rdjoh")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cwqqq"]
-size = Vector3(2.19922, 1, 2.61182)
+size = Vector3(2.30399, 1, 1.34058)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3kw18"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xxjde"]
+size = Vector3(5.67388, 1, 2.10379)
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-3.8085e-08, -0.688253, 0.72547, -2.14528e-08, 0.72547, 0.688253, -1, 1.06488e-08, -4.23945e-08, 17.5553, 30.561, -28.1733)
+transform = Transform3D(-3.8085e-08, -0.688253, 0.72547, -2.14528e-08, 0.72547, 0.688253, -1, 1.06488e-08, -4.23945e-08, 44, 30.561, -16)
 environment = SubResource("Environment_hg0hl")
 fov = 31.2175
 
@@ -672,43 +682,146 @@ collision_layer = 4
 collision_mask = 0
 size = Vector3(10, 5, 0.2)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.19609, 1.55668, 13.2977)
-collision_layer = 2
-collision_mask = 4
+[node name="Objetos" type="Node" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(-0.862699, 0, 0.505718, 0, 1, 0, -0.505718, 0, -0.862699, 0.599609, -0.692703, -0.805908)
-shape = SubResource("BoxShape3D_cwqqq")
+[node name="ServiceRoom" type="Node" parent="Objetos"]
 
-[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D"]
-transform = Transform3D(-1.23928, -1.7425, 0.915399, -0.82735, 1.9568, 0.901724, -2.44929, 0.220665, -0.767763, 0, 1.37884, 0)
-texture = ExtResource("7_5vm0g")
-
-[node name="RigidBody3D2" type="RigidBody3D" parent="."]
+[node name="Estante1" type="RigidBody3D" parent="Objetos/ServiceRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.87367, 1.55668, 11.8156)
 collision_layer = 2
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
-transform = Transform3D(-0.78482, 0, 0.619724, 0, 1, 0, -0.619724, 0, -0.78482, 0.599609, -0.692703, -0.805908)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/ServiceRoom/Estante1"]
+transform = Transform3D(-0.764787, 0, 0.644284, 0, 1, 0, -0.644284, 0, -0.764787, 0.599609, -0.692703, -0.805908)
 shape = SubResource("BoxShape3D_cwqqq")
 
-[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D2"]
-transform = Transform3D(-1.23928, -1.7425, 0.915399, -0.82735, 1.9568, 0.901724, -2.44929, 0.220665, -0.767763, 0, 1.37884, 0)
+[node name="Sprite3D" type="Sprite3D" parent="Objetos/ServiceRoom/Estante1"]
+transform = Transform3D(-1.03468, -1.6341, 0.936263, -0.852869, 1.49971, 1.12933, -2.20404, 0.186792, -0.876525, 0, 1.37884, 0)
 texture = ExtResource("7_4biig")
 
-[node name="RigidBody3D3" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.306766, 1.55668, 2.2958)
+[node name="Estante2" type="RigidBody3D" parent="Objetos/ServiceRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.19609, 1.55668, 13.2977)
 collision_layer = 2
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
-transform = Transform3D(-0.78482, 0, 0.619724, 0, 1, 0, -0.619724, 0, -0.78482, 0.599609, -0.692703, -0.805908)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/ServiceRoom/Estante2"]
+transform = Transform3D(-0.745557, 0, 0.666442, 0, 1, 0, -0.666442, 0, -0.745557, 0.958603, -0.692703, -0.48501)
 shape = SubResource("BoxShape3D_cwqqq")
 
-[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D3"]
-transform = Transform3D(-1.23928, -1.7425, 0.915399, -0.82735, 1.9568, 0.901724, -2.44929, 0.220665, -0.767763, 0, 1.37884, 0)
-texture = ExtResource("7_4biig")
+[node name="Sprite3D" type="Sprite3D" parent="Objetos/ServiceRoom/Estante2"]
+transform = Transform3D(-1.07155, -1.47733, 1.05902, -0.744591, 1.6552, 1.02639, -2.22589, 0.157499, -0.853156, 0.054719, 1.37884, -0.0322189)
+texture = ExtResource("7_5vm0g")
+
+[node name="Cubo" type="RigidBody3D" parent="Objetos/ServiceRoom"]
+transform = Transform3D(0.988438, 0, -0.151623, 0, 1, 0, 0.151623, 0, 0.988438, 11.7777, 0.752991, 6.10737)
+collision_layer = 2
+collision_mask = 4
+
+[node name="Sprite3D" type="Sprite3D" parent="Objetos/ServiceRoom/Cubo"]
+transform = Transform3D(-0.0227793, 0, 1.23391, 0, 3.24567, 0, -1.7829, 0, -0.0157649, 2.98023e-07, -0.343748, -0.495724)
+texture = ExtResource("19_e2qt6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/ServiceRoom/Cubo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.421759)
+shape = SubResource("BoxShape3D_3kw18")
+
+[node name="Trapeador" type="RigidBody3D" parent="Objetos/ServiceRoom"]
+transform = Transform3D(0.988438, 0, -0.151623, 0, 1, 0, 0.151623, 0, 0.988438, 14.206, 0.752991, 8.64339)
+collision_layer = 2
+collision_mask = 4
+
+[node name="Sprite3D" type="Sprite3D" parent="Objetos/ServiceRoom/Trapeador"]
+transform = Transform3D(-0.509664, 0, 1.18252, 0, 3.24567, 0, -1.70865, 0, -0.352727, 9.53674e-07, 2.70058, -0.495725)
+texture = ExtResource("18_xymtn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/ServiceRoom/Trapeador"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-07, 0, -0.421759)
+shape = SubResource("BoxShape3D_3kw18")
+
+[node name="Reception" type="Node" parent="Objetos"]
+
+[node name="Recepcion" type="RigidBody3D" parent="Objetos/Reception"]
+transform = Transform3D(0.998219, 0, -0.0596548, 0, 1, 0, 0.0596548, 0, 0.998219, -2.19326, 1.55668, 1.42348)
+collision_layer = 2
+collision_mask = 4
+
+[node name="Sprite3D" type="Sprite3D" parent="Objetos/Reception/Recepcion"]
+transform = Transform3D(-0.914708, -1.32554, 1.05997, -0.610664, 1.48856, 1.04413, -1.80781, 0.167863, -0.889015, -0.0620675, 0.486189, -0.185707)
+texture = ExtResource("17_445dy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/Reception/Recepcion"]
+transform = Transform3D(0.721217, 0, -0.692711, 0, 1, 0, 0.692711, 0, 0.721217, 0.871808, -0.920553, -0.295255)
+shape = SubResource("BoxShape3D_xxjde")
+
+[node name="Planta" type="RigidBody3D" parent="Objetos/Reception"]
+transform = Transform3D(0.988438, 0, -0.151623, 0, 1, 0, 0.151623, 0, 0.988438, -5.41577, 0.752991, -0.259908)
+collision_layer = 2
+collision_mask = 4
+
+[node name="Sprite3D" type="Sprite3D" parent="Objetos/Reception/Planta"]
+transform = Transform3D(-0.554039, 0, 1.17292, 0, 3.24567, 0, -1.69478, 0, -0.383438, 0, 1.15537, -0.495723)
+texture = ExtResource("18_wgn1d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/Reception/Planta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.421759)
+shape = SubResource("BoxShape3D_3kw18")
+
+[node name="Cubo" type="RigidBody3D" parent="Objetos/Reception"]
+transform = Transform3D(0.988438, 0, -0.151623, 0, 1, 0, 0.151623, 0, 0.988438, 0.577742, 0.752991, -5.78899)
+collision_layer = 2
+collision_mask = 4
+
+[node name="Sprite3D" type="Sprite3D" parent="Objetos/Reception/Cubo"]
+transform = Transform3D(-0.0227793, 0, 1.23391, 0, 3.24567, 0, -1.7829, 0, -0.0157649, 2.98023e-07, -0.343748, -0.495724)
+texture = ExtResource("19_e2qt6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/Reception/Cubo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.421759)
+shape = SubResource("BoxShape3D_3kw18")
+
+[node name="Sprite3D" type="Sprite3D" parent="Objetos/Reception"]
+transform = Transform3D(1.77975, 0, 0, 0, -1.26935e-07, -1.10012, 0, 2.90394, -4.80877e-08, 1.17776, 0.102635, -2.19063)
+texture = ExtResource("20_qltgk")
+
+[node name="Lounge" type="Node" parent="Objetos"]
+
+[node name="Planta" type="RigidBody3D" parent="Objetos/Lounge"]
+transform = Transform3D(0.988438, 0, -0.151623, 0, 1, 0, 0.151623, 0, 0.988438, 3.07546, 0.752992, -13.4099)
+collision_layer = 2
+collision_mask = 4
+
+[node name="Sprite3D" type="Sprite3D" parent="Objetos/Lounge/Planta"]
+transform = Transform3D(-0.554039, 0, 1.17292, 0, 3.24567, 0, -1.69478, 0, -0.383438, 0, 1.15537, -0.495723)
+texture = ExtResource("18_wgn1d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/Lounge/Planta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.421759)
+shape = SubResource("BoxShape3D_3kw18")
+
+[node name="Planta2" type="RigidBody3D" parent="Objetos/Lounge"]
+transform = Transform3D(0.988438, 0, -0.151623, 0, 1, 0, 0.151623, 0, 0.988438, 12.7822, 0.752993, -2.73961)
+collision_layer = 2
+collision_mask = 4
+
+[node name="Sprite3D" type="Sprite3D" parent="Objetos/Lounge/Planta2"]
+transform = Transform3D(-0.554039, 0, 1.17292, 0, 3.24567, 0, -1.69478, 0, -0.383438, 0, 1.15537, -0.495723)
+texture = ExtResource("18_wgn1d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/Lounge/Planta2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.421759)
+shape = SubResource("BoxShape3D_3kw18")
+
+[node name="Planta3" type="RigidBody3D" parent="Objetos/Lounge"]
+transform = Transform3D(0.988438, 0, -0.151623, 0, 1, 0, 0.151623, 0, 0.988438, 26.8283, 0.752993, -17.0937)
+collision_layer = 2
+collision_mask = 4
+
+[node name="Sprite3D" type="Sprite3D" parent="Objetos/Lounge/Planta3"]
+transform = Transform3D(-0.554039, 0, 1.17292, 0, 3.24567, 0, -1.69478, 0, -0.383438, 0, 1.15537, -0.495723)
+texture = ExtResource("18_wgn1d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/Lounge/Planta3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.421759)
+shape = SubResource("BoxShape3D_3kw18")
 
 [connection signal="timeout" from="Control/Clock/Timer" to="Control/Clock" method="_on_timer_timeout"]
