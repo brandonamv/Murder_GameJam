@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://bmkyb0hhd0hqv"]
+[gd_scene load_steps=28 format=3 uid="uid://bmkyb0hhd0hqv"]
 
 [ext_resource type="PackedScene" uid="uid://c84jqacwj0cq8" path="res://npc.tscn" id="1_m02dp"]
 [ext_resource type="Texture2D" uid="uid://duicfsa5055qk" path="res://48363882_10211371688242657_8638120375554670592_n.jpg" id="2_8bgvk"]
 [ext_resource type="Script" path="res://player.gd" id="2_xg10q"]
 [ext_resource type="Texture2D" uid="uid://dtnuby1wmsq73" path="res://assets/Tile Assets/flour3x.jpg" id="4_jxxyt"]
+[ext_resource type="PackedScene" uid="uid://c6fn3qvk5ubc1" path="res://Reloj/clock.tscn" id="4_vfrks"]
 [ext_resource type="Texture2D" uid="uid://mb0kjrxg5igo" path="res://assets/Tile Assets/flour_principal3x.jpg" id="5_cyxj7"]
 [ext_resource type="Texture2D" uid="uid://dijynb47qf31w" path="res://assets/Tile Assets/textura.jpg" id="6_uma75"]
 
@@ -118,34 +119,7 @@ shape = SubResource("SphereShape3D_swadx")
 [node name="Jose" parent="." instance=ExtResource("1_m02dp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52402, -2.83208)
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Clock" type="HBoxContainer" parent="Control"]
-layout_mode = 0
-offset_top = -1.0
-offset_right = 183.0
-offset_bottom = 68.0
-
-[node name="Timer" type="Timer" parent="Control/Clock"]
-
-[node name="Minutos" type="Label" parent="Control/Clock"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "00"
-
-[node name="Blank" type="Label" parent="Control/Clock"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = ":"
-
-[node name="Segundos" type="Label" parent="Control/Clock"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "00"
+[node name="Control" parent="." instance=ExtResource("4_vfrks")]
 
 [node name="Pisos" type="Node" parent="."]
 
@@ -612,5 +586,3 @@ use_collision = true
 collision_layer = 4
 collision_mask = 0
 size = Vector3(10, 5, 0.2)
-
-[connection signal="timeout" from="Control/Clock/Timer" to="Control/Clock" method="_on_timer_timeout"]

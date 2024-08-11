@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6fn3qvk5ubc1"]
+
+[ext_resource type="Script" path="res://Reloj/Clock.gd" id="1_n7wkn"]
+[ext_resource type="Texture2D" uid="uid://c606rqpv4sshq" path="res://Reloj/Timer.svg" id="1_xajbr"]
+[ext_resource type="PackedScene" uid="uid://crsmtehcii2wv" path="res://Reloj/ClockNumber.tscn" id="2_g4qgv"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_right = 41.0
+offset_bottom = 40.0
+script = ExtResource("1_n7wkn")
+
+[node name="Clock" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 25.0
+offset_bottom = 25.0
+
+[node name="Timer2" type="Sprite2D" parent="Clock"]
+position = Vector2(92, 61)
+texture = ExtResource("1_xajbr")
+
+[node name="Timer" type="Timer" parent="Clock"]
+
+[node name="Min2" parent="." instance=ExtResource("2_g4qgv")]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 52.0
+offset_top = 73.0
+offset_right = 33.0
+offset_bottom = 75.0
+
+[node name="Min1" parent="." instance=ExtResource("2_g4qgv")]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 73.0
+offset_right = 61.0
+offset_bottom = 75.0
+
+[node name="Seg2" parent="." instance=ExtResource("2_g4qgv")]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 126.0
+offset_top = 73.0
+offset_right = 107.0
+offset_bottom = 75.0
+
+[node name="Seg1" parent="." instance=ExtResource("2_g4qgv")]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 154.0
+offset_top = 73.0
+offset_right = 135.0
+offset_bottom = 75.0
+
+[connection signal="timeout" from="Clock/Timer" to="." method="_on_timer_timeout"]
