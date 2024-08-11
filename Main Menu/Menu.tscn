@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cx66gqjbp0awm"]
+[gd_scene load_steps=9 format=3 uid="uid://cx66gqjbp0awm"]
 
 [ext_resource type="Texture2D" uid="uid://cjkuwegpvukns" path="res://Main Menu/background.jpg" id="1_d2a4x"]
+[ext_resource type="Script" path="res://Main Menu/Menu.gd" id="1_yuuif"]
 [ext_resource type="Texture2D" uid="uid://bkd5blcy0xgty" path="res://Main Menu/Logo.png" id="2_itfc2"]
 [ext_resource type="Texture2D" uid="uid://ch5jqpng03fff" path="res://Main Menu/presset.png" id="3_wkgw6"]
 [ext_resource type="AudioStream" uid="uid://bp701d281jdd1" path="res://Main Menu/Main Menu Theme.mp3" id="4_uhp3g"]
@@ -21,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yuuif")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(575, 324.5)
@@ -60,3 +62,5 @@ text = "CREDITOS"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_uhp3g")
 autoplay = true
+
+[connection signal="pressed" from="Container/VBoxContainer/Button" to="." method="_on_button_pressed"]

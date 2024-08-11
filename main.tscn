@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bmkyb0hhd0hqv"]
+[gd_scene load_steps=53 format=3 uid="uid://bmkyb0hhd0hqv"]
 
 [ext_resource type="Texture2D" uid="uid://duicfsa5055qk" path="res://48363882_10211371688242657_8638120375554670592_n.jpg" id="2_8bgvk"]
 [ext_resource type="Script" path="res://player.gd" id="2_xg10q"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cdm0mwbxlihgq" path="res://assets/Tile Assets/Cubo de limpieza.png" id="18_xymtn"]
 [ext_resource type="Texture2D" uid="uid://l04o04821bb3" path="res://assets/Tile Assets/Tacho Vacio.png" id="19_e2qt6"]
 [ext_resource type="Texture2D" uid="uid://tuo6b55p0lpl" path="res://assets/Tile Assets/Carpet.png" id="20_qltgk"]
+[ext_resource type="PackedScene" uid="uid://cx66gqjbp0awm" path="res://Main Menu/Menu.tscn" id="22_ikn6n"]
 
 [sub_resource type="Environment" id="Environment_hg0hl"]
 tonemap_white = 9.25
@@ -823,5 +824,7 @@ texture = ExtResource("18_wgn1d")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/Lounge/Planta3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.421759)
 shape = SubResource("BoxShape3D_3kw18")
+
+[node name="Menu" parent="." instance=ExtResource("22_ikn6n")]
 
 [connection signal="timeout" from="Control/Clock/Timer" to="Control/Clock" method="_on_timer_timeout"]
