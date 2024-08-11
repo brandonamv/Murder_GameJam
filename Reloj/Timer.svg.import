@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyjl64jetsm85"
-path="res://.godot/imported/Corner.png-c316db60b6218337e51634e2cb5c8682.ctex"
+uid="uid://c606rqpv4sshq"
+path="res://.godot/imported/Timer.svg-197f4e3fa11f98bd0cc8a5238abbee79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tile Assets/Corner.png"
-dest_files=["res://.godot/imported/Corner.png-c316db60b6218337e51634e2cb5c8682.ctex"]
+source_file="res://Reloj/Timer.svg"
+dest_files=["res://.godot/imported/Timer.svg-197f4e3fa11f98bd0cc8a5238abbee79.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=3 uid="uid://cll841ds81rl4"]
+
+[ext_resource type="Script" path="res://Inventario/inventario.gd" id="1_qhv26"]
+[ext_resource type="Texture2D" uid="uid://b4r40eporcynr" path="res://icon.svg" id="2_i8q5l"]
+
+[node name="Inventario" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_right = 980.0
+offset_bottom = 650.0
+scale = Vector2(0.24, 1)
+script = ExtResource("1_qhv26")
+
+[node name="Filas" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = -4.16667
+offset_top = 36.0
+offset_right = 1095.83
+offset_bottom = 636.0
+
+[node name="Columna1" type="HBoxContainer" parent="Filas"]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="Filas/Columna1"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_i8q5l")
+stretch_mode = 0
+
+[node name="TextureButton" type="TextureButton" parent="Filas/Columna1"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_i8q5l")
+stretch_mode = 0
+
+[node name="Columna2" type="HBoxContainer" parent="Filas"]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="Filas/Columna2"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_i8q5l")
+stretch_mode = 0
+
+[node name="TextureButton" type="TextureButton" parent="Filas/Columna2"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_i8q5l")
+stretch_mode = 0
+
+[node name="Columna3" type="HBoxContainer" parent="Filas"]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="Filas/Columna3"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_i8q5l")
+stretch_mode = 0
+
+[node name="TextureButton" type="TextureButton" parent="Filas/Columna3"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_i8q5l")
+stretch_mode = 0
+
+[node name="Columna4" type="HBoxContainer" parent="Filas"]
+layout_mode = 2
+
+[node name="TextureButton2" type="TextureButton" parent="Filas/Columna4"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_i8q5l")
+stretch_mode = 0
+
+[node name="TextureButton" type="TextureButton" parent="Filas/Columna4"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_i8q5l")
+stretch_mode = 0
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = 904.167
+offset_top = 11.0
+offset_right = 1096.17
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "X"
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
