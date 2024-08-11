@@ -3,12 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c84jqacwj0cq8" path="res://npc.tscn" id="1_m02dp"]
 [ext_resource type="Texture2D" uid="uid://duicfsa5055qk" path="res://48363882_10211371688242657_8638120375554670592_n.jpg" id="2_8bgvk"]
 [ext_resource type="Script" path="res://player.gd" id="2_xg10q"]
-[ext_resource type="AudioStream" uid="uid://cqqfo5layyq7" path="res://assets/music/ambient.mp3" id="4_xqhgf"]
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_hjnxl"]
-auto_exposure_scale = 0.01
-dof_blur_far_distance = 0.01
-dof_blur_far_transition = 8.85
+[ext_resource type="Script" path="res://Clock.gd" id="3_ecqkd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xv17w"]
 albedo_texture = ExtResource("2_8bgvk")
@@ -74,6 +69,46 @@ size = Vector3(1, 1, 10.9789)
 [node name="Jose" parent="." instance=ExtResource("1_m02dp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52402, -2.83208)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_xqhgf")
-autoplay = true
+[node name="Physics" type="RigidBody3D" parent="NPC"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52402, 3.24854)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPC/Physics"]
+shape = SubResource("BoxShape3D_cw2q3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NPC/Physics"]
+mesh = SubResource("BoxMesh_sm8at")
+skeleton = NodePath("../..")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Clock" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 183.0
+offset_bottom = 68.0
+script = ExtResource("3_ecqkd")
+
+[node name="Timer" type="Timer" parent="Control/Clock"]
+
+[node name="Minutos" type="Label" parent="Control/Clock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "00"
+
+[node name="Blank" type="Label" parent="Control/Clock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = ":"
+
+[node name="Segundos" type="Label" parent="Control/Clock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "00"
+
+[connection signal="timeout" from="Control/Clock/Timer" to="Control/Clock" method="_on_timer_timeout"]
