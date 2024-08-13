@@ -1305,4 +1305,12 @@ color = Color(0.255659, 0.255659, 0.255659, 1)
 color_ramp = SubResource("Gradient_wjjk6")
 color_initial_ramp = SubResource("Gradient_ij5l7")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(-0.775403, -0.607994, -0.170566, -0.323662, 0.614596, -0.719385, 0.542211, -0.502608, -0.673344, 12.3978, 2.09563, -21.0219)
+light_color = Color(1, 0.550188, 0.394172, 1)
+light_energy = 7.949
+light_indirect_energy = 1.12
+light_cull_mask = 4294967291
+omni_range = 4096.0
+
 [connection signal="timeout" from="Control/Clock/Timer" to="Control/Clock" method="_on_timer_timeout"]

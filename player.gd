@@ -13,8 +13,15 @@ var camPos={
 	Corridor1={x=36,z=-39},
 	Corridor2={x=17,z=-28}
 }
-
+var t=0
 func _physics_process(delta):
+	if t+delta>1:
+		t=0
+		$"../OmniLight3D".light_energy=randf()*5+5
+	else:
+		t+=delta
+	
+	
 	direction = GLOBAL.get_axis()
 	
 	velocity.x = direction.x * speed
