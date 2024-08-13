@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://bmkyb0hhd0hqv"]
+[gd_scene load_steps=76 format=3 uid="uid://bmkyb0hhd0hqv"]
 
 [ext_resource type="Texture2D" uid="uid://duicfsa5055qk" path="res://48363882_10211371688242657_8638120375554670592_n.jpg" id="2_8bgvk"]
 [ext_resource type="Script" path="res://player.gd" id="2_xg10q"]
@@ -33,6 +33,19 @@
 [ext_resource type="Texture2D" uid="uid://cxb1hpg3orer5" path="res://assets/Tile Assets/Lavamanos.png" id="29_yxc3f"]
 [ext_resource type="Texture2D" uid="uid://cxwf1otejvsa1" path="res://assets/Tile Assets/RolloPapel.png" id="30_o3fex"]
 [ext_resource type="Texture2D" uid="uid://dsmql1s0ks6s" path="res://assets/Tile Assets/Espejo.png" id="31_161h6"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ha50q"]
+lifetime_randomness = 0.13
+emission_shape_scale = Vector3(11, 1, 13)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 23.313
+initial_velocity_max = 2.35
+scale_min = 0.1
+scale_max = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_mtf43"]
+orientation = 0
 
 [sub_resource type="Environment" id="Environment_hg0hl"]
 tonemap_white = 9.25
@@ -180,7 +193,29 @@ size = Vector3(1.87567, 1, 1.02863)
 [sub_resource type="BoxShape3D" id="BoxShape3D_yv5o3"]
 size = Vector3(1, 1, 3.21021)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_pkerh"]
+size = Vector2(0.5, 0.5)
+orientation = 0
+
+[sub_resource type="Gradient" id="Gradient_wjjk6"]
+offsets = PackedFloat32Array(0, 0.426667, 1)
+colors = PackedColorArray(0, 0, 1, 1, 0.286667, 0.286667, 0.286667, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_ij5l7"]
+
 [node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1.03852, 0, 0.557478, 0, 1, 0, -0.223853, 0, 2.5863, 16.6328, 25.8546, -14.9147)
+visible = false
+emitting = false
+amount = 1000
+lifetime = 3.7
+speed_scale = 0.65
+randomness = 1.0
+visibility_aabb = AABB(-26.1738, -4.75867, -11.9239, 48.3007, 8, 23.0061)
+process_material = SubResource("ParticleProcessMaterial_ha50q")
+draw_pass_1 = SubResource("QuadMesh_mtf43")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-3.8085e-08, -0.688253, 0.72547, -2.14528e-08, 0.72547, 0.688253, -1, 1.06488e-08, -4.23945e-08, 44, 30.561, -16)
@@ -1251,5 +1286,23 @@ shape = SubResource("BoxShape3D_3kw18")
 
 [node name="Menu" parent="." instance=ExtResource("22_ikn6n")]
 visible = false
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9271, 27.049, -11.4545)
+amount = 1000
+lifetime = 14.4
+speed_scale = 0.2
+randomness = 1.0
+lifetime_randomness = 1.0
+mesh = SubResource("PlaneMesh_pkerh")
+emission_shape = 3
+emission_box_extents = Vector3(15, 1, 15)
+angle_min = -160.0
+angle_max = 116.3
+scale_amount_min = 0.2
+scale_amount_max = 0.5
+color = Color(0.255659, 0.255659, 0.255659, 1)
+color_ramp = SubResource("Gradient_wjjk6")
+color_initial_ramp = SubResource("Gradient_ij5l7")
 
 [connection signal="timeout" from="Control/Clock/Timer" to="Control/Clock" method="_on_timer_timeout"]
