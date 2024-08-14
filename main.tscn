@@ -1,16 +1,20 @@
-[gd_scene load_steps=76 format=3 uid="uid://bmkyb0hhd0hqv"]
+[gd_scene load_steps=86 format=3 uid="uid://bmkyb0hhd0hqv"]
 
 [ext_resource type="Texture2D" uid="uid://duicfsa5055qk" path="res://48363882_10211371688242657_8638120375554670592_n.jpg" id="2_8bgvk"]
 [ext_resource type="Script" path="res://player.gd" id="2_xg10q"]
+[ext_resource type="Texture2D" uid="uid://ble1qeygegjyb" path="res://assets/player/Player_Idle.png" id="4_2rjqi"]
 [ext_resource type="Texture2D" uid="uid://dtnuby1wmsq73" path="res://assets/Tile Assets/flour3x.jpg" id="4_jxxyt"]
-[ext_resource type="Texture2D" uid="uid://bphjxxlvatf6h" path="res://assets/Tile Assets/Idle.png" id="4_kovyl"]
 [ext_resource type="Texture2D" uid="uid://bihavkgw8cpmu" path="res://assets/Tile Assets/Wall_Window.png" id="5_23r7y"]
 [ext_resource type="Texture2D" uid="uid://mb0kjrxg5igo" path="res://assets/Tile Assets/flour_principal3x.jpg" id="5_cyxj7"]
+[ext_resource type="Texture2D" uid="uid://desvms3jtukq7" path="res://assets/player/Player_Up_Walk_1.png" id="5_xw265"]
 [ext_resource type="Texture2D" uid="uid://c8xxl8rqv2ug4" path="res://assets/Tile Assets/Floor_Almacen.png" id="6_6qeus"]
 [ext_resource type="Texture2D" uid="uid://dijynb47qf31w" path="res://assets/Tile Assets/textura.jpg" id="6_uma75"]
+[ext_resource type="Texture2D" uid="uid://bciexnrdihsmf" path="res://assets/player/Player_Up_Walk_2.png" id="6_v5o8b"]
 [ext_resource type="Texture2D" uid="uid://bkrsdron7le5p" path="res://assets/Tile Assets/Gabinete 2.png" id="7_4biig"]
+[ext_resource type="Texture2D" uid="uid://mmsyx7kt3ul2" path="res://assets/player/Player_Up_Walk_3.png" id="7_5v7lj"]
 [ext_resource type="Texture2D" uid="uid://bu5xxj6lv1rgq" path="res://assets/Tile Assets/Gabinete 1.png" id="7_5vm0g"]
 [ext_resource type="Texture2D" uid="uid://xvdtwfleja5r" path="res://assets/Tile Assets/Floor_Comedor.png" id="7_680pa"]
+[ext_resource type="Texture2D" uid="uid://dc5oxxoih7ra3" path="res://assets/Show/Snowflake.png" id="7_e0iw7"]
 [ext_resource type="Texture2D" uid="uid://04p8sbmeojd" path="res://assets/Tile Assets/wall_backroom3x.jpg" id="7_rdjoh"]
 [ext_resource type="Texture2D" uid="uid://dxqxnr8af7ays" path="res://assets/Tile Assets/Wall_Door_Dobble.png" id="7_xui1k"]
 [ext_resource type="Texture2D" uid="uid://daiiulaijd5qf" path="res://assets/Tile Assets/Floor_Pasillo.png" id="8_48lkf"]
@@ -24,28 +28,58 @@
 [ext_resource type="Texture2D" uid="uid://jmh1d86sk613" path="res://assets/Tile Assets/Table.png" id="22_cbx06"]
 [ext_resource type="PackedScene" uid="uid://cx66gqjbp0awm" path="res://Main Menu/Menu.tscn" id="22_ikn6n"]
 [ext_resource type="Texture2D" uid="uid://b60uhaevumtnn" path="res://assets/Tile Assets/Armchair.png" id="23_2moxu"]
+[ext_resource type="Script" path="res://Lounge.gd" id="23_6dpj3"]
 [ext_resource type="Texture2D" uid="uid://bpvnblwis8eri" path="res://assets/Tile Assets/Armchair Dobble.png" id="24_64y0e"]
 [ext_resource type="Texture2D" uid="uid://cvg8tmwe1iixg" path="res://assets/Tile Assets/Mate.png" id="25_cakbb"]
-[ext_resource type="Texture2D" uid="uid://7c8q2uywilt" path="res://assets/Tile Assets/Chimenea_copia.png" id="26_rk5ft"]
 [ext_resource type="Texture2D" uid="uid://cgc276kw2rc6i" path="res://assets/Tile Assets/Arepas.png" id="26_v3vkv"]
 [ext_resource type="Texture2D" uid="uid://d1l6rlrikqwar" path="res://assets/Tile Assets/Baño.png" id="27_j3dhp"]
+[ext_resource type="Texture2D" uid="uid://bnobait6u7ufn" path="res://assets/Chimenea/Chimenea_1.png" id="27_oca2v"]
+[ext_resource type="Texture2D" uid="uid://dsu1wvtigojc0" path="res://assets/Chimenea/Chimenea_2.png" id="28_hnlpo"]
 [ext_resource type="Texture2D" uid="uid://jbywxdh2r23q" path="res://assets/Tile Assets/Inodoro.png" id="28_yjwiq"]
+[ext_resource type="Texture2D" uid="uid://c5ilf67okh0mv" path="res://assets/Chimenea/Chimenea_3.png" id="29_ujv05"]
 [ext_resource type="Texture2D" uid="uid://cxb1hpg3orer5" path="res://assets/Tile Assets/Lavamanos.png" id="29_yxc3f"]
 [ext_resource type="Texture2D" uid="uid://cxwf1otejvsa1" path="res://assets/Tile Assets/RolloPapel.png" id="30_o3fex"]
 [ext_resource type="Texture2D" uid="uid://dsmql1s0ks6s" path="res://assets/Tile Assets/Espejo.png" id="31_161h6"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ha50q"]
-lifetime_randomness = 0.13
-emission_shape_scale = Vector3(11, 1, 13)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-spread = 23.313
-initial_velocity_max = 2.35
-scale_min = 0.1
-scale_max = 0.5
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xv17w"]
+albedo_texture = ExtResource("2_8bgvk")
 
-[sub_resource type="QuadMesh" id="QuadMesh_mtf43"]
-orientation = 0
+[sub_resource type="BoxMesh" id="BoxMesh_50qx2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0jf0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_swadx"]
+radius = 1.268
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc8mh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_2rjqi")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_xw265")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v5o8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5v7lj")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xkumc"]
+lifetime_randomness = 0.1
+
+[sub_resource type="QuadMesh" id="QuadMesh_jo3a4"]
 
 [sub_resource type="Environment" id="Environment_hg0hl"]
 tonemap_white = 9.25
@@ -77,16 +111,6 @@ volumetric_fog_length = 62.9
 volumetric_fog_detail_spread = 1.10957
 volumetric_fog_ambient_inject = 1.26
 adjustment_saturation = 5.3
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xv17w"]
-albedo_texture = ExtResource("2_8bgvk")
-
-[sub_resource type="BoxMesh" id="BoxMesh_50qx2"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_a0jf0"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_swadx"]
-radius = 1.268
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pi5wc"]
 albedo_texture = ExtResource("5_cyxj7")
@@ -184,6 +208,23 @@ size = Vector3(2.276, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lh7sw"]
 size = Vector3(2.22375, 1, 1.8009)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_lx3cm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_oca2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_hnlpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ujv05")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_776t2"]
 size = Vector3(2.66772, 1, 1)
 
@@ -192,6 +233,10 @@ size = Vector3(1.87567, 1, 1.02863)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yv5o3"]
 size = Vector3(1, 1, 3.21021)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7f8dt"]
+transparency = 1
+albedo_texture = ExtResource("7_e0iw7")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_pkerh"]
 size = Vector2(0.5, 0.5)
@@ -205,29 +250,8 @@ colors = PackedColorArray(0, 0, 1, 1, 0.286667, 0.286667, 0.286667, 1, 1, 1, 1, 
 
 [node name="Node3D" type="Node3D"]
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1.03852, 0, 0.557478, 0, 1, 0, -0.223853, 0, 2.5863, 16.6328, 25.8546, -14.9147)
-visible = false
-emitting = false
-amount = 1000
-lifetime = 3.7
-speed_scale = 0.65
-randomness = 1.0
-visibility_aabb = AABB(-26.1738, -4.75867, -11.9239, 48.3007, 8, 23.0061)
-process_material = SubResource("ParticleProcessMaterial_ha50q")
-draw_pass_1 = SubResource("QuadMesh_mtf43")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-3.8085e-08, -0.688253, 0.72547, -2.14528e-08, 0.72547, 0.688253, -1, 1.06488e-08, -4.23945e-08, 44, 30.561, -16)
-environment = SubResource("Environment_hg0hl")
-fov = 31.2175
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.447322, -0.632417, 0.632417, 0, 0.707107, 0.707107, -0.894373, 0.316304, -0.316304, 14.6373, 13.2338, -9.66322)
-light_color = Color(0.870588, 1, 1, 1)
-
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.824, 1.27513, 9.09174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7172, 1.25217, 9.54299)
 collision_mask = 6
 platform_floor_layers = 4294967041
 platform_wall_layers = 2
@@ -254,9 +278,30 @@ collision_mask = 2
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 shape = SubResource("SphereShape3D_swadx")
 
-[node name="Sprite3D" type="Sprite3D" parent="Player"]
-transform = Transform3D(-0.0060534, 0, -0.359778, 0, 0.11082, 0, -0.0867418, 0, 0.0251076, 0, 0.345849, 0)
-texture = ExtResource("4_kovyl")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
+transform = Transform3D(0.00693189, -7.73179e-10, -0.359852, 7.60578e-09, 0.111, 1.52889e-22, -0.0867234, 9.67308e-09, -0.0287634, 0, 0.346, 0)
+sprite_frames = SubResource("SpriteFrames_wc8mh")
+animation = &"Walk"
+
+[node name="dw" type="GPUParticles3D" parent="."]
+transform = Transform3D(1.03852, 0, 0.557478, 0, 1, 0, -0.223853, 0, 2.5863, 16.6328, 25.8546, -14.9147)
+emitting = false
+amount = 1000
+lifetime = 3.7
+speed_scale = 0.65
+randomness = 1.0
+visibility_aabb = AABB(-26.1738, -4.75867, -11.9239, 48.3007, 8, 23.0061)
+process_material = SubResource("ParticleProcessMaterial_xkumc")
+draw_pass_1 = SubResource("QuadMesh_jo3a4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-3.8085e-08, -0.688253, 0.72547, -2.14528e-08, 0.72547, 0.688253, -1, 1.06488e-08, -4.23945e-08, 44, 30.561, -16)
+environment = SubResource("Environment_hg0hl")
+fov = 31.2175
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.447322, -0.632417, 0.632417, 0, 0.707107, 0.707107, -0.894373, 0.316304, -0.316304, 14.6373, 13.2338, -9.66322)
+light_color = Color(0.870588, 1, 1, 1)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -855,6 +900,7 @@ transform = Transform3D(0.400196, 0, 1.80065, 0, 4.31943, 0, 2.54745, 0, -0.2828
 texture = ExtResource("25_cakbb")
 
 [node name="Lounge" type="Node" parent="Objetos"]
+script = ExtResource("23_6dpj3")
 
 [node name="Planta" type="RigidBody3D" parent="Objetos/Lounge"]
 transform = Transform3D(0.988438, 0, -0.151623, 0, 1, 0, 0.151623, 0, 0.988438, 3.07546, 0.752992, -13.4099)
@@ -1128,13 +1174,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1176, 0.723743, -21.8028)
 collision_layer = 2
 collision_mask = 4
 
-[node name="Sprite3D" type="Sprite3D" parent="Objetos/Lounge/Chimenea"]
-transform = Transform3D(-0.252272, 0.647822, 0.976634, 0.0862437, 4.01681, -0.153541, -1.72657, 0.105989, -0.150367, 0.51653, 3.06643, -0.399025)
-texture = ExtResource("26_rk5ft")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/Lounge/Chimenea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.611877, 0, 0.400452)
 shape = SubResource("BoxShape3D_lh7sw")
+
+[node name="Chimenea" type="AnimatedSprite3D" parent="Objetos/Lounge/Chimenea"]
+transform = Transform3D(-0.253561, 0.646037, 0.976595, 0.0873454, 4.01694, -0.152986, -1.72629, 0.108354, -0.151185, 0.517, 3.066, -0.399)
+sprite_frames = SubResource("SpriteFrames_lx3cm")
+frame_progress = 0.346398
 
 [node name="Arepa" type="Sprite3D" parent="Objetos/Lounge"]
 transform = Transform3D(0.685479, -2.6007, -0.00522929, 0.012637, 0.100562, -0.14992, 2.57119, 0.692851, 0.00213098, 11.7944, 3.23833, -16.0009)
@@ -1288,7 +1335,8 @@ shape = SubResource("BoxShape3D_3kw18")
 visible = false
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9271, 27.049, -11.4545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8114, 27.049, -23.0122)
+material_override = SubResource("StandardMaterial3D_7f8dt")
 amount = 1000
 lifetime = 14.4
 speed_scale = 0.2
@@ -1296,7 +1344,7 @@ randomness = 1.0
 lifetime_randomness = 1.0
 mesh = SubResource("PlaneMesh_pkerh")
 emission_shape = 3
-emission_box_extents = Vector3(15, 1, 15)
+emission_box_extents = Vector3(30, 1, 30)
 angle_min = -160.0
 angle_max = 116.3
 scale_amount_min = 0.2
