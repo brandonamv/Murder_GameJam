@@ -35,16 +35,21 @@ scale = Vector2(0.620666, 0.649425)
 texture = ExtResource("2_itfc2")
 
 [node name="Container" type="Container" parent="."]
-layout_mode = 0
-offset_left = 128.0
-offset_top = 312.0
-offset_right = 393.0
-offset_bottom = 542.0
+custom_minimum_size = Vector2(141, 105)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = 7.5
+offset_right = 341.0
+offset_bottom = 112.5
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Container"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Container/VBoxContainer"]
+[node name="Iniciar" type="Button" parent="Container/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxTexture_kwub5")
 text = "INICIAR PARTIDA"
@@ -54,7 +59,7 @@ layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxTexture_ryt5l")
 text = "OPCION"
 
-[node name="Button3" type="Button" parent="Container/VBoxContainer"]
+[node name="Creditos" type="Button" parent="Container/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxTexture_f1cfi")
 text = "CREDITOS"
@@ -63,4 +68,5 @@ text = "CREDITOS"
 stream = ExtResource("4_uhp3g")
 autoplay = true
 
-[connection signal="pressed" from="Container/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="Container/VBoxContainer/Creditos" to="." method="_on_creditos_pressed"]
