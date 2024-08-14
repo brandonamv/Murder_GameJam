@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @export var speed : float
+@onready var anim = $AnimatedSprite3D 
 var direction = Vector2.ZERO
 var gravity = 9
 var actualInteraction
@@ -26,7 +27,12 @@ func _physics_process(delta):
 	
 	velocity.x = direction.x * speed
 	velocity.z = direction.y * speed
-	
+
+	if direction.y > 0:
+		$AnimatedSprite3D.rotation.y = 84 * 3.1416 / 180
+	elif direction.y < 0 : 
+		$AnimatedSprite3D.rotation.y = -93 * 3.1416 / 180
+		
 	if !is_on_floor():
 		velocity.y -= gravity
 		
@@ -38,6 +44,10 @@ func _physics_process(delta):
 		viewPoint.z=direction.y
 		viewPoint = viewPoint.normalized()
 		$Pivot.basis = Basis.looking_at(viewPoint)
+		anim.play('Walk')
+	else :
+		anim.play('Idle')
+		
 		#$Interaction.basis= Basis.looking_at(viewPoint)
 		
 	if player.position.y < -200 :
