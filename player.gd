@@ -14,14 +14,46 @@ var camPos={
 	Corridor1={x=36,z=-39},
 	Corridor2={x=17,z=-28}
 }
-var t=0
-func _physics_process(delta):
-	if t+delta>1:
-		t=0
-		$"../OmniLight3D".light_energy=randf()*5+5
-	else:
-		t+=delta
+var dialogs={
+	Estante2={
+		text={
+			no="¿Qué rayos? ¿por qué la bolsa con veneno de rata está abierta...?",
+			si="Ya no hay nada aqui"
+		},
+		tomado="no",
+	},
+	Mesa3={
+		text={
+			no="Provoca una arepita",
+			si="Estaba cartelua"
+		},
+		tomado="no",
+	},
+	Recepcion={
+		text={
+			no="Uh me re pinta un mate ahora",
+			si="Pero que rrrico que estaba ese mate"
+		},
+		tomado="no",
+	},
+	Cubo2={
+		text={
+			no="¿Qué es esto? Una botella rota y... ¡¿Eso es sangre?!",
+			si="Ya no hay nada aqui"
+		},
+		tomado="no",
+	},
+	Lavamanos={
+		text={
+			no='"Pastillas para dormir", sospechoso...',
+			si="Ya no hay nada aqui"
+		},
+		tomado="no",
+	}
 	
+}
+var play=false
+func _physics_process(delta):
 	
 	direction = GLOBAL.get_axis()
 	
@@ -45,8 +77,13 @@ func _physics_process(delta):
 		viewPoint = viewPoint.normalized()
 		$Pivot.basis = Basis.looking_at(viewPoint)
 		anim.play('Walk')
+		if !play:
+			$"../AudioStreamPlayer".play()
+			play=true
 	else :
 		anim.play('Idle')
+		$"../AudioStreamPlayer".stop()
+		play=false
 		
 		#$Interaction.basis= Basis.looking_at(viewPoint)
 		
@@ -58,13 +95,27 @@ func _physics_process(delta):
 	var collide=$Interaction.get_overlapping_bodies()
 	if Input.is_action_just_pressed("interact"):
 		if collide:
+			if collide[0].name in dialogs:
+				$"../Control2".visible=true
+				var tomado=dialogs[collide[0].name].tomado
+				$"../Control2/Dialog".text=dialogs[collide[0].name].text[tomado]
+				dialogs[collide[0].name].tomado="si"
+				actualInteraction=collide
 			print("interaction is posible",collide[0].name)
+			if collide[0].name=="Estante2":
+				$"../Objetos/ServiceRoom/Estante2/Sprite3D".texture= load("res://assets/Tile Assets/Gabinete 2.png")
+			if collide[0].name=="Cubo2":
+				$"../Objetos/Lounge/Cubo2/Sprite3D".texture= load("res://assets/Tile Assets/Tacho Vacio.png")
+			if collide[0].name=="Recepcion":
+				$"../Objetos/Reception/Mate".visible=false	
+			if collide[0].name=="Mesa3":
+				$"../Objetos/Lounge/Arepa".visible=false		
 			#npc[0].queue_free() #para eliminar el objeto
-			collide[0].get_node("Dialog").visible=true
-			actualInteraction=collide[0]
+			#collide[0].get_node("Dialog").visible=true
+			#actualInteraction=collide[0]
 			#$"../Cancion".play()
 	if !collide and actualInteraction:
-		actualInteraction.get_node("Dialog").visible=false
+		$"../Control2".visible=false
 		actualInteraction=null
 		#$"../Cancion".stop()
 		
@@ -75,5 +126,7 @@ func _physics_process(delta):
 			$"../Camera3D".position.x=camPos[collision.get_collider().name].x
 			$"../Camera3D".position.z=camPos[collision.get_collider().name].z
 	move_and_slide()
+
+
 
 

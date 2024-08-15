@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cll841ds81rl4"]
+[gd_scene load_steps=2 format=3 uid="uid://cll841ds81rl4"]
 
 [ext_resource type="Script" path="res://Inventario/inventario.gd" id="1_qhv26"]
-[ext_resource type="Texture2D" uid="uid://b4r40eporcynr" path="res://icon.svg" id="2_i8q5l"]
 
 [node name="Inventario" type="Control"]
 layout_mode = 3
@@ -25,13 +24,11 @@ layout_mode = 2
 [node name="TextureButton2" type="TextureButton" parent="Filas/Columna1"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-texture_normal = ExtResource("2_i8q5l")
 stretch_mode = 0
 
 [node name="TextureButton" type="TextureButton" parent="Filas/Columna1"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-texture_normal = ExtResource("2_i8q5l")
 stretch_mode = 0
 
 [node name="Columna2" type="HBoxContainer" parent="Filas"]
@@ -40,13 +37,11 @@ layout_mode = 2
 [node name="TextureButton2" type="TextureButton" parent="Filas/Columna2"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-texture_normal = ExtResource("2_i8q5l")
 stretch_mode = 0
 
 [node name="TextureButton" type="TextureButton" parent="Filas/Columna2"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-texture_normal = ExtResource("2_i8q5l")
 stretch_mode = 0
 
 [node name="Columna3" type="HBoxContainer" parent="Filas"]
@@ -55,13 +50,11 @@ layout_mode = 2
 [node name="TextureButton2" type="TextureButton" parent="Filas/Columna3"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-texture_normal = ExtResource("2_i8q5l")
 stretch_mode = 0
 
 [node name="TextureButton" type="TextureButton" parent="Filas/Columna3"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-texture_normal = ExtResource("2_i8q5l")
 stretch_mode = 0
 
 [node name="Columna4" type="HBoxContainer" parent="Filas"]
@@ -70,13 +63,11 @@ layout_mode = 2
 [node name="TextureButton2" type="TextureButton" parent="Filas/Columna4"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-texture_normal = ExtResource("2_i8q5l")
 stretch_mode = 0
 
 [node name="TextureButton" type="TextureButton" parent="Filas/Columna4"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-texture_normal = ExtResource("2_i8q5l")
 stretch_mode = 0
 
 [node name="CloseButton" type="Button" parent="."]

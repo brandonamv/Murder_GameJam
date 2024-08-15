@@ -1,6 +1,8 @@
-[gd_scene load_steps=86 format=3 uid="uid://bmkyb0hhd0hqv"]
+[gd_scene load_steps=97 format=3 uid="uid://bmkyb0hhd0hqv"]
 
 [ext_resource type="PackedScene" uid="uid://c6fn3qvk5ubc1" path="res://Reloj/clock.tscn" id="1_fwqkc"]
+[ext_resource type="PackedScene" uid="uid://d0i86xv8gxf8i" path="res://Notas/Dialogos.tscn" id="1_odhq5"]
+[ext_resource type="PackedScene" uid="uid://bj2jdluykfdo" path="res://Notas/nota.tscn" id="1_u0hre"]
 [ext_resource type="Script" path="res://player.gd" id="2_xg10q"]
 [ext_resource type="Texture2D" uid="uid://ble1qeygegjyb" path="res://assets/player/Player_Idle.png" id="4_2rjqi"]
 [ext_resource type="Texture2D" uid="uid://dtnuby1wmsq73" path="res://assets/Tile Assets/flour3x.jpg" id="4_jxxyt"]
@@ -38,7 +40,17 @@
 [ext_resource type="Texture2D" uid="uid://c5ilf67okh0mv" path="res://assets/Chimenea/Chimenea_3.png" id="29_ujv05"]
 [ext_resource type="Texture2D" uid="uid://cxb1hpg3orer5" path="res://assets/Tile Assets/Lavamanos.png" id="29_yxc3f"]
 [ext_resource type="Texture2D" uid="uid://cxwf1otejvsa1" path="res://assets/Tile Assets/RolloPapel.png" id="30_o3fex"]
+[ext_resource type="Texture2D" uid="uid://dgkmjl8vbmmv5" path="res://assets/Tile Assets/Tacho Llenos.png" id="30_wl3c6"]
 [ext_resource type="Texture2D" uid="uid://dsmql1s0ks6s" path="res://assets/Tile Assets/Espejo.png" id="31_161h6"]
+[ext_resource type="Script" path="res://OmniLight3D.gd" id="40_ackhn"]
+[ext_resource type="Texture2D" uid="uid://546buwyxn2mh" path="res://assets/Personajes/Hotelero.png" id="41_upgxy"]
+[ext_resource type="Texture2D" uid="uid://4ip0mjrgsu8l" path="res://assets/Personajes/Agus.png" id="42_py54h"]
+[ext_resource type="Texture2D" uid="uid://8m7v2wcareyh" path="res://assets/Personajes/Mario.png" id="43_pk3be"]
+[ext_resource type="Texture2D" uid="uid://ba3l87nut5wmm" path="res://assets/Personajes/Sara.png" id="44_l3kpe"]
+[ext_resource type="Texture2D" uid="uid://meebccm2da0q" path="res://assets/Personajes/Marta.png" id="45_c8j0h"]
+[ext_resource type="Texture2D" uid="uid://btt8sent1r5e3" path="res://assets/Personajes/Jack.png" id="46_lms2p"]
+[ext_resource type="AudioStream" uid="uid://vtemyhokt0mg" path="res://assets/sounds/sfx_personaje_pasos_2a.wav" id="50_pt36p"]
+[ext_resource type="AudioStream" uid="uid://c6ohjog0uf3do" path="res://assets/sounds/mus_murder_stage1_lounge.wav" id="51_5mv4r"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yire0"]
 load_path = "res://.godot/imported/48363882_10211371688242657_8638120375554670592_n.jpg-55771f4dc313e51b7c5a75bfae1c6b82.s3tc.ctex"
@@ -77,11 +89,6 @@ animations = [{
 "name": &"Walk",
 "speed": 5.0
 }]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xkumc"]
-lifetime_randomness = 0.1
-
-[sub_resource type="QuadMesh" id="QuadMesh_jo3a4"]
 
 [sub_resource type="Environment" id="Environment_hg0hl"]
 tonemap_white = 9.25
@@ -250,9 +257,20 @@ colors = PackedColorArray(0, 0, 1, 1, 0.286667, 0.286667, 0.286667, 1, 1, 1, 1, 
 
 [sub_resource type="Gradient" id="Gradient_ij5l7"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_eidpv"]
+
 [node name="Node3D" type="Node3D"]
 
-[node name="Control" parent="." instance=ExtResource("1_fwqkc")]
+[node name="Control2" parent="." instance=ExtResource("1_odhq5")]
+visible = false
+
+[node name="Control" parent="." instance=ExtResource("1_u0hre")]
+offset_left = 5.0
+offset_top = 1.0
+offset_right = -931.0
+offset_bottom = -529.0
+
+[node name="Clock" parent="." instance=ExtResource("1_fwqkc")]
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7172, 1.25217, 9.54299)
@@ -284,22 +302,12 @@ shape = SubResource("SphereShape3D_swadx")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
 transform = Transform3D(0.00693189, -7.73179e-10, -0.359852, 7.60578e-09, 0.111, 1.52889e-22, -0.0867234, 9.67308e-09, -0.0287634, 0, 0.346, 0)
+layers = 3
 sprite_frames = SubResource("SpriteFrames_wc8mh")
 animation = &"Walk"
 
-[node name="dw" type="GPUParticles3D" parent="."]
-transform = Transform3D(1.03852, 0, 0.557478, 0, 1, 0, -0.223853, 0, 2.5863, 16.6328, 25.8546, -14.9147)
-emitting = false
-amount = 1000
-lifetime = 3.7
-speed_scale = 0.65
-randomness = 1.0
-visibility_aabb = AABB(-26.1738, -4.75867, -11.9239, 48.3007, 8, 23.0061)
-process_material = SubResource("ParticleProcessMaterial_xkumc")
-draw_pass_1 = SubResource("QuadMesh_jo3a4")
-
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-3.8085e-08, -0.688253, 0.72547, -2.14528e-08, 0.72547, 0.688253, -1, 1.06488e-08, -4.23945e-08, 44, 30.561, -16)
+transform = Transform3D(-3.8085e-08, -0.688253, 0.72547, -2.14528e-08, 0.72547, 0.688253, -1, 1.06488e-08, -4.23945e-08, 34.211, 30.561, 10)
 environment = SubResource("Environment_hg0hl")
 fov = 31.2175
 
@@ -860,7 +868,7 @@ collision_mask = 4
 
 [node name="Sprite3D" type="Sprite3D" parent="Objetos/Reception/Cubo"]
 transform = Transform3D(-0.0227793, 0, 1.23391, 0, 3.24567, 0, -1.7829, 0, -0.0157649, 2.98023e-07, -0.343748, -0.495724)
-texture = ExtResource("19_e2qt6")
+texture = ExtResource("30_wl3c6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/Reception/Cubo"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.421759)
@@ -952,7 +960,7 @@ transform = Transform3D(1.63832, -1.16271, 0.499473, -0.173225, 1.26341, 0.76906
 texture = ExtResource("22_cbx06")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/Lounge/Mesa3"]
-transform = Transform3D(0.989889, 0, -0.141852, 0, 1, 0, 0.141852, 0, 0.989889, -5.72205e-06, 0, 0.174958)
+transform = Transform3D(0.989889, 0, -0.141852, 0, 1, 0, 0.141852, 0, 0.989889, 0.720461, 0, 0.382428)
 shape = SubResource("BoxShape3D_7hchn")
 
 [node name="Mesa4" type="RigidBody3D" parent="Objetos/Lounge"]
@@ -1138,7 +1146,7 @@ collision_mask = 4
 
 [node name="Sprite3D" type="Sprite3D" parent="Objetos/Lounge/Cubo2"]
 transform = Transform3D(-0.0227793, 0, 1.23391, 0, 3.24567, 0, -1.7829, 0, -0.0157649, 2.98023e-07, -0.343748, -0.495724)
-texture = ExtResource("19_e2qt6")
+texture = ExtResource("30_wl3c6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/Lounge/Cubo2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.421759)
@@ -1150,7 +1158,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/Lounge/Chimenea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.611877, 0, 0.400452)
+transform = Transform3D(0.721313, 0, -0.692609, 0, 1, 0, 0.692609, 0, 0.721313, 0.284536, 0, 0.0214024)
 shape = SubResource("BoxShape3D_lh7sw")
 
 [node name="Chimenea" type="AnimatedSprite3D" parent="Objetos/Lounge/Chimenea"]
@@ -1159,7 +1167,7 @@ sprite_frames = SubResource("SpriteFrames_lx3cm")
 frame_progress = 0.346398
 
 [node name="Arepa" type="Sprite3D" parent="Objetos/Lounge"]
-transform = Transform3D(0.685479, -2.6007, -0.00522929, 0.012637, 0.100562, -0.14992, 2.57119, 0.692851, 0.00213098, 11.7944, 3.23833, -16.0009)
+transform = Transform3D(0.685479, -2.6007, -0.00522929, 0.012637, 0.100562, -0.14992, 2.57119, 0.692851, 0.00213098, 10.2314, 2.04112, -16.1527)
 texture = ExtResource("26_v3vkv")
 
 [node name="Baño" type="Node" parent="Objetos"]
@@ -1300,14 +1308,14 @@ collision_mask = 4
 
 [node name="Sprite3D" type="Sprite3D" parent="Objetos/Corredor2/Cubo"]
 transform = Transform3D(-0.0227793, 0, 1.23391, 0, 3.24567, 0, -1.7829, 0, -0.0157649, 2.98023e-07, -0.343748, -0.495724)
-texture = ExtResource("19_e2qt6")
+texture = ExtResource("30_wl3c6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objetos/Corredor2/Cubo"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, -0.42176)
 shape = SubResource("BoxShape3D_3kw18")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8114, 46.4368, -21.1041)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8114, 11.0209, -21.1041)
 material_override = SubResource("StandardMaterial3D_7f8dt")
 amount = 2000
 lifetime = 20.0
@@ -1332,3 +1340,95 @@ light_energy = 7.949
 light_indirect_energy = 1.12
 light_cull_mask = 4294967291
 omni_range = 4096.0
+script = ExtResource("40_ackhn")
+
+[node name="Personajes" type="Node" parent="."]
+
+[node name="Hotelero" type="RigidBody3D" parent="Personajes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52616, -0.171722, -2.76017)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Personajes/Hotelero"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.969177, 0)
+shape = SubResource("BoxShape3D_eidpv")
+
+[node name="Sprite3D" type="Sprite3D" parent="Personajes/Hotelero"]
+transform = Transform3D(-0.0188597, 0, 10.0934, 0, 0.125353, 0, 0.130041, 0, 1.46384, 0, 2.00639, 0)
+texture = ExtResource("41_upgxy")
+
+[node name="Agus" type="RigidBody3D" parent="Personajes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.4232, -0.171722, 8.95745)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Personajes/Agus"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.969177, 0)
+shape = SubResource("BoxShape3D_eidpv")
+
+[node name="Sprite3D" type="Sprite3D" parent="Personajes/Agus"]
+transform = Transform3D(-0.0162256, -0.0169537, 9.44109, -0.00245504, 0.112048, 1.4285, 0.103563, 4.12765e-10, 1.51302, 0, 2.00639, 0)
+texture = ExtResource("42_py54h")
+
+[node name="Mario" type="RigidBody3D" parent="Personajes"]
+transform = Transform3D(0.993772, 0, 0.111434, 0, 1, 0, -0.111434, 0, 0.993772, 4.62892, -0.171721, -12.1635)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Personajes/Mario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.969177, 0)
+shape = SubResource("BoxShape3D_eidpv")
+
+[node name="Sprite3D" type="Sprite3D" parent="Personajes/Mario"]
+transform = Transform3D(-0.0580007, -0.0165706, 7.92277, -0.00246362, 0.120408, 1.42212, 0.0877582, -0.00757158, 5.27619, 0, 2.18247, 0)
+texture = ExtResource("43_pk3be")
+
+[node name="Sara" type="RigidBody3D" parent="Personajes"]
+transform = Transform3D(-0.790016, 0, -0.613086, 0, 1, 0, 0.613086, 0, -0.790016, 21.1387, -0.171721, -0.955488)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Personajes/Sara"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.969177, 0)
+shape = SubResource("BoxShape3D_eidpv")
+
+[node name="Sprite3D" type="Sprite3D" parent="Personajes/Sara"]
+transform = Transform3D(-0.0537004, -0.0102377, 8.23708, -0.00338263, 0.121337, 0.757472, 0.0904238, -0.00154082, 4.92013, -0.0438404, 2.18247, -0.0720406)
+texture = ExtResource("44_l3kpe")
+
+[node name="Marta" type="RigidBody3D" parent="Personajes"]
+transform = Transform3D(-0.749903, 0, -0.661548, 0, 1, 0, 0.661548, 0, -0.749903, 6.51258, -0.17172, -30.6904)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Personajes/Marta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.969177, 0)
+shape = SubResource("BoxShape3D_eidpv")
+
+[node name="Sprite3D" type="Sprite3D" parent="Personajes/Marta"]
+transform = Transform3D(-0.0590321, 0.0133659, 7.39793, -0.00267227, 0.103967, -1.88927, 0.068712, 0.0155263, 6.28226, 0, 1.96385, 0)
+texture = ExtResource("45_c8j0h")
+
+[node name="Jack" type="RigidBody3D" parent="Personajes"]
+transform = Transform3D(-0.749903, 0, -0.661548, 0, 1, 0, 0.661548, 0, -0.749903, -15.3845, -0.17172, -35.3089)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Personajes/Jack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.969177, 0)
+shape = SubResource("BoxShape3D_eidpv")
+
+[node name="Sprite3D" type="Sprite3D" parent="Personajes/Jack"]
+transform = Transform3D(-0.0590321, 0.0133659, 7.39793, -0.00267227, 0.103967, -1.88927, 0.068712, 0.0155263, 6.28226, 0, 1.96385, 0)
+texture = ExtResource("46_lms2p")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("50_pt36p")
+volume_db = -7.495
+pitch_scale = 1.13
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("51_5mv4r")
+autoplay = true
+
+[connection signal="ready" from="Player" to="Player" method="_on_ready"]

@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 
 GLOBAL="*res://global.gd"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 interact={

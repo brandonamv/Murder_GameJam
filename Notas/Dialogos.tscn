@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0i86xv8gxf8i"]
+
+[ext_resource type="Texture2D" uid="uid://7kxq6t7kaq06" path="res://Notas/banner.png" id="1_6xpdx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Banner" type="Sprite2D" parent="."]
+position = Vector2(514.25, 75.25)
+scale = Vector2(1.0395, 1.67391)
+texture = ExtResource("1_6xpdx")
+
+[node name="Dialog" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 310.0
+offset_top = 37.0
+offset_right = 679.0
+offset_bottom = 112.0
+text = "asdasda
+asdasdasdasd
+asdasd"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
