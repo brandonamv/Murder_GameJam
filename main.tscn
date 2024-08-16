@@ -307,7 +307,7 @@ sprite_frames = SubResource("SpriteFrames_wc8mh")
 animation = &"Walk"
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-3.8085e-08, -0.688253, 0.72547, -2.14528e-08, 0.72547, 0.688253, -1, 1.06488e-08, -4.23945e-08, 34.211, 30.561, 10)
+transform = Transform3D(-3.8085e-08, -0.688253, 0.72547, -2.14528e-08, 0.72547, 0.688253, -1, 1.06488e-08, -4.23945e-08, 44, 30.561, -16)
 environment = SubResource("Environment_hg0hl")
 fov = 31.2175
 
@@ -1162,7 +1162,7 @@ transform = Transform3D(0.721313, 0, -0.692609, 0, 1, 0, 0.692609, 0, 0.721313, 
 shape = SubResource("BoxShape3D_lh7sw")
 
 [node name="Chimenea" type="AnimatedSprite3D" parent="Objetos/Lounge/Chimenea"]
-transform = Transform3D(-0.253561, 0.646037, 0.976595, 0.0873454, 4.01694, -0.152986, -1.72629, 0.108354, -0.151185, 0.517, 3.066, -0.399)
+transform = Transform3D(-0.267083, -0.331918, 0.984874, 0.0242667, 4.055, 0.0846557, -1.72629, 0.108354, -0.151185, -0.216108, 3.30683, -0.399)
 sprite_frames = SubResource("SpriteFrames_lx3cm")
 frame_progress = 0.346398
 

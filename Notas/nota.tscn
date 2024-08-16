@@ -32,6 +32,7 @@ texture = SubResource("GradientTexture1D_a2p4v")
 
 [node name="TextureButton2" type="TextureButton" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 3.0
 offset_top = 547.0
 offset_right = 202.0
